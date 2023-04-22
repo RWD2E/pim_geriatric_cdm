@@ -24,7 +24,7 @@ pacman::p_load(
 
 source_url("https://raw.githubusercontent.com/sxinger/utils/master/extract_util.R")
 
-tgt_schema <- "PIM2016"
+tgt_schema <- "PUBLIC"
 tgt_tbl <- "PIM_VS_RXNORM"
 
 # make db connection
@@ -35,7 +35,7 @@ sf_conn <- DBI::dbConnect(
   pwd = Sys.getenv("SNOWFLAKE_PWD")
 )
 
-load_valueset(
+dt<-load_valueset(
   vs_template = "vsac",
   vs_url = "https://raw.githubusercontent.com/RWD2E/phecdm/main/res/valueset_autogen/pim-rx.json",
   dry_run = TRUE,
@@ -44,3 +44,5 @@ load_valueset(
   write_to_tbl = tgt_tbl,
   overwrite = TRUE
 )
+
+write.csv(dt,file="./ref/pim_vs_rxnorm.csv")
