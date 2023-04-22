@@ -268,6 +268,9 @@ from PIM_CASE_CTRL_ASET a
 
 select * from PIM_CASE_CTRL_ASET2 limit 10;
 
+select cci, count(distinct patid)
+from PIM_CASE_CTRL_ASET2
+group by cci;
 
 select PIM2_IND, count(distinct patid) from PIM_CASE_CTRL_TABLE1
 group by PIM2_IND
