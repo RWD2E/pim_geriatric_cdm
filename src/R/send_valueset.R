@@ -8,7 +8,7 @@
 #################################################################
 
 rm(list=ls()); gc()
-setwd("C:")
+setwd("C:/repos/pim_geriatric_cdm")
 
 # install.packages("pacman")
 pacman::p_load(
@@ -19,7 +19,6 @@ pacman::p_load(
   magrittr,
   dbplyr,
   devtools,
-  stringdist,
   jsonlite
   )
 
