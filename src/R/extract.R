@@ -28,3 +28,7 @@ sf_conn <- DBI::dbConnect(
 
 dat<-tbl(sf_conn,in_schema("PUBLIC","PIM_CASE_CTRL_ASET2")) %>% collect()
 saveRDS(dat,file="./final_aset.rds")
+
+meta<-data.frame(colnm = colnames(dat),
+                 stringsAsFactors = F)
+write.csv(meta,file="./ref/metadata.csv",row.names = F)
