@@ -1,10 +1,8 @@
 #################################################################            
 # Author: Xing Song, xsm7f@umsystem.edu                            
 # File: send_valueset.R
-# Description: string-search published or curated valuesets for
-#              targeted valueset of interest
-# Note: this script can be run from any machine, but may need to 
-#       modify where to obtain snowflake credentials
+# Description:
+# Dependency: 
 #################################################################
 
 rm(list=ls()); gc()
@@ -16,6 +14,7 @@ pacman::p_load(
   jsonlite,
   odbc,
   tidyverse,
+  tidyr,
   magrittr,
   dbplyr,
   devtools,

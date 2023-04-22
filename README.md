@@ -9,7 +9,8 @@ Percentage of patients 65 years of age and older who were ordered at least two h
 
 3. Total rate (the sum of the two numerators divided by the denominator, deduplicating for patients in both numerators).
 
-NHS: MU IRB #2096332
+NHS: MUIRB-#2096332
+Project ID: NEXTGEN_MUIRB2096332
 
 https://agsjournals.onlinelibrary.wiley.com/doi/10.1111/jgs.15767
 
@@ -17,7 +18,7 @@ https://ecqi.healthit.gov/sites/default/files/ecqm/measures/CMS156v11-v2.html
 
 https://ecqi.healthit.gov/measure-data-elements/173701
 
-
+https://hakkoda.io/resources/python-for-snowpark/
 
 ************************************
 
