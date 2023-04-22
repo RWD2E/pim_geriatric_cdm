@@ -18,7 +18,7 @@ https://ecqi.healthit.gov/sites/default/files/ecqm/measures/CMS156v11-v2.html
 
 https://ecqi.healthit.gov/measure-data-elements/173701
 
-
+https://hakkoda.io/resources/python-for-snowpark/
 
 ************************************
 
