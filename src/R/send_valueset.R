@@ -35,6 +35,7 @@ sf_conn <- DBI::dbConnect(
   pwd = Sys.getenv("SNOWFLAKE_PWD")
 )
 
+# retain a local copy
 dt<-load_valueset(
   vs_template = "vsac",
   vs_url = "https://raw.githubusercontent.com/RWD2E/phecdm/main/res/valueset_autogen/pim-rx.json",
@@ -43,6 +44,19 @@ dt<-load_valueset(
   write_to_schema = tgt_schema,
   write_to_tbl = tgt_tbl,
   overwrite = TRUE
-)
+) %>%
+  mutate(CODE_LABEL = gsub(",",";",CODE_LABEL),
+         CODEGRP_LABEL = gsub(",",";",CODEGRP_LABEL))
+write.csv(dt,file="./ref/pim_vs_rxnorm.csv",row.names = FALSE)
 
-write.csv(dt,file="./ref/pim_vs_rxnorm.csv")
+# push to remote db
+load_valueset(
+  vs_template = "vsac",
+  vs_url = "https://raw.githubusercontent.com/RWD2E/phecdm/main/res/valueset_autogen/pim-rx.json",
+  dry_run = FALSE,
+  conn=sf_conn,
+  write_to_schema = tgt_schema,
+  write_to_tbl = tgt_tbl,
+  overwrite = TRUE,
+  file_encoding = "utf-8"
+)
